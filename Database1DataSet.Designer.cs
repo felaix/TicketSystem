@@ -818,6 +818,7 @@ namespace TicketSystem {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
+                this.columnseverity.AllowDBNull = false;
                 this.columndescription.MaxLength = 2147483647;
                 this.columnstatus.MaxLength = 10;
             }
@@ -1374,12 +1375,7 @@ namespace TicketSystem {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int severity {
                 get {
-                    try {
-                        return ((int)(this[this.tableTickets.severityColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'severity\' in table \'Tickets\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTickets.severityColumn]));
                 }
                 set {
                     this[this.tableTickets.severityColumn] = value;
@@ -1416,18 +1412,6 @@ namespace TicketSystem {
                 set {
                     this[this.tableTickets.statusColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsseverityNull() {
-                return this.IsNull(this.tableTickets.severityColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetseverityNull() {
-                this[this.tableTickets.severityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2274,16 +2258,10 @@ SELECT Id, severity, description, Status FROM Tickets WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, global::System.Nullable<int> Original_severity, string Original_status) {
+        public virtual int Delete(int Original_Id, int Original_severity, string Original_status) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_severity.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_severity.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_severity));
             if ((Original_status == null)) {
                 throw new global::System.ArgumentNullException("Original_status");
             }
@@ -2311,14 +2289,9 @@ SELECT Id, severity, description, Status FROM Tickets WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Id, global::System.Nullable<int> severity, string description, string status) {
+        public virtual int Insert(int Id, int severity, string description, string status) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id));
-            if ((severity.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(severity.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(severity));
             if ((description == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
@@ -2351,14 +2324,9 @@ SELECT Id, severity, description, Status FROM Tickets WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Id, global::System.Nullable<int> severity, string description, string status, int Original_Id, global::System.Nullable<int> Original_severity, string Original_status) {
+        public virtual int Update(int Id, int severity, string description, string status, int Original_Id, int Original_severity, string Original_status) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Id));
-            if ((severity.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(severity.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(severity));
             if ((description == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
@@ -2372,14 +2340,8 @@ SELECT Id, severity, description, Status FROM Tickets WHERE (Id = @Id)";
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(status));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
-            if ((Original_severity.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_severity.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_severity));
             if ((Original_status == null)) {
                 throw new global::System.ArgumentNullException("Original_status");
             }
@@ -2407,7 +2369,7 @@ SELECT Id, severity, description, Status FROM Tickets WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> severity, string description, string status, int Original_Id, global::System.Nullable<int> Original_severity, string Original_status) {
+        public virtual int Update(int severity, string description, string status, int Original_Id, int Original_severity, string Original_status) {
             return this.Update(Original_Id, severity, description, status, Original_Id, Original_severity, Original_status);
         }
     }

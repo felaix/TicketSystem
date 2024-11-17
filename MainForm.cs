@@ -54,8 +54,28 @@ namespace TicketSystem
 
         private void CreateTicket()
         {
-            //string query = "INSERT into Tickets " + () + "VALUES (@Id, @Severity, @Description)";
+            try
+            {
+            	connection.Open();
+            }
+            catch (System.Exception ex)
+            {
+
+            }
+
+
+            var query = "INSERT INTO Tickets (Severity, Description, Status) VALUES (@Severity, @Description, @Status)";
+            command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Severity", cboxSeverity.SelectedIndex); // or cboxSeverity.SelectedValue
+            command.Parameters.AddWithValue("@Description", txtDescription.Text);
+            command.Parameters.AddWithValue("@Status", "open");
+
+
+            command.ExecuteNonQuery();
+            MessageBox.Show("Ticket created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadTickets();
         }
+
 
         private void SaveInfo()
         {
@@ -135,17 +155,7 @@ namespace TicketSystem
 
         private void btnCreateTicket_Click(object sender, EventArgs e)
         {
-            try
-            {
                 CreateTicket();
-                MessageBox.Show("Ticket created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadTickets();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while creating the ticket {ex.InnerException}", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-            }
         }
     }
 }

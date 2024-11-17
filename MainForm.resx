@@ -120,17 +120,11 @@
   <metadata name="ticketsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>164, 17</value>
   </metadata>
+  <metadata name="database1DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="ticketsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>164, 17</value>
-  </metadata>
-  <metadata name="database1DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="database1DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
   </metadata>
   <metadata name="ticketsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>329, 17</value>
@@ -141,4 +135,35 @@
   <metadata name="ticketsBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>655, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        x/kJy1UAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>
